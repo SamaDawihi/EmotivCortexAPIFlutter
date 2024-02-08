@@ -22,6 +22,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _clientSecret = prefs.getString('ff_clientSecret') ?? _clientSecret;
     });
+    _safeInit(() {
+      _defaultHeadset = prefs.getString('ff_defaultHeadset') ?? _defaultHeadset;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -44,6 +47,13 @@ class FFAppState extends ChangeNotifier {
   set clientSecret(String value) {
     _clientSecret = value;
     prefs.setString('ff_clientSecret', value);
+  }
+
+  String _defaultHeadset = '';
+  String get defaultHeadset => _defaultHeadset;
+  set defaultHeadset(String value) {
+    _defaultHeadset = value;
+    prefs.setString('ff_defaultHeadset', value);
   }
 }
 

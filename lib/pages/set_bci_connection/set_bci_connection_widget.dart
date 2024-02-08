@@ -424,17 +424,26 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                               style: FlutterFlowTheme.of(context).headlineLarge,
                             ),
                             FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                setState(() {
+                                  FFAppState().defaultHeadset =
+                                      availableHeadsetItem;
+                                });
                               },
-                              text: 'Connect',
+                              text: availableHeadsetItem ==
+                                      FFAppState().defaultHeadset
+                                  ? 'Default'
+                                  : 'Set Default',
                               options: FFButtonOptions(
                                 height: 40.0,
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
                                 iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
+                                color: availableHeadsetItem ==
+                                        FFAppState().defaultHeadset
+                                    ? FlutterFlowTheme.of(context).success
+                                    : FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
