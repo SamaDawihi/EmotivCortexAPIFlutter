@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'set_bci_connection_model.dart';
 export 'set_bci_connection_model.dart';
@@ -66,21 +64,21 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: true,
-          actions: [],
+          actions: const [],
           centerTitle: true,
           elevation: 4.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                   child: TextFormField(
                     controller: _model.textController1,
                     focusNode: _model.textFieldFocusNode1,
@@ -97,21 +95,21 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
@@ -124,7 +122,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                   child: TextFormField(
                     controller: _model.textController2,
                     focusNode: _model.textFieldFocusNode2,
@@ -141,21 +139,21 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
@@ -188,9 +186,9 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                         options: FFButtonOptions(
                           width: 120.0,
                           height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
@@ -204,7 +202,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Container(
                         width: 20.0,
                         height: 20.0,
@@ -216,7 +214,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                         ),
                       ),
                     ),
-                  ].divide(SizedBox(width: 10.0)),
+                  ].divide(const SizedBox(width: 10.0)),
                 ),
                 if (_model.aacessError != null && _model.aacessError != '')
                   Text(
@@ -226,7 +224,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                           color: FlutterFlowTheme.of(context).error,
                         ),
                   ),
-              ].divide(SizedBox(height: 8.0)),
+              ].divide(const SizedBox(height: 8.0)),
             ),
           ),
         ),

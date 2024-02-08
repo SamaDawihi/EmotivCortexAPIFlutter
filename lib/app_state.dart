@@ -34,22 +34,22 @@ class FFAppState extends ChangeNotifier {
 
   bool _authorized = false;
   bool get authorized => _authorized;
-  set authorized(bool _value) {
-    _authorized = _value;
+  set authorized(bool value) {
+    _authorized = value;
   }
 
   String _clientId = '';
   String get clientId => _clientId;
-  set clientId(String _value) {
-    _clientId = _value;
-    prefs.setString('ff_clientId', _value);
+  set clientId(String value) {
+    _clientId = value;
+    prefs.setString('ff_clientId', value);
   }
 
   String _clientSecret = '';
   String get clientSecret => _clientSecret;
-  set clientSecret(String _value) {
-    _clientSecret = _value;
-    prefs.setString('ff_clientSecret', _value);
+  set clientSecret(String value) {
+    _clientSecret = value;
+    prefs.setString('ff_clientSecret', value);
   }
 }
 
