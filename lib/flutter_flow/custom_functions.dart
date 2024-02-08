@@ -13,3 +13,14 @@ dynamic stringToJson(String text) {
   // coverts string to Json object
   return jsonDecode(text);
 }
+
+List<String> availableHeadsetId(String json) {
+  // return all id {"result":[{"id":"EPOCX-E50207C0","status":"connected"},{"id":"EPOCX-E58207C0"}]}
+  final Map<String, dynamic> data = jsonDecode(json);
+  final List<dynamic> result = data['result'];
+  final List<String> ids = [];
+  for (final item in result) {
+    ids.add(item['id']);
+  }
+  return ids;
+}

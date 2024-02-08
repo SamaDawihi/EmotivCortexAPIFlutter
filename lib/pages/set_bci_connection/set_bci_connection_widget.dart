@@ -350,14 +350,10 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                           _model.queredHeadsets = await actions.dQueryHeadset();
                           setState(() {
                             _model.queryHeadsetError = _model.queredHeadsets;
-                            _model
-                                .addToAvailableHeadsets(valueOrDefault<String>(
-                              getJsonField(
-                                functions.stringToJson(_model.queredHeadsets!),
-                                r'''$.result''',
-                              )?.toString(),
-                              'default',
-                            ));
+                            _model.availableHeadsets = functions
+                                .availableHeadsetId(_model.queredHeadsets!)
+                                .toList()
+                                .cast<String>();
                           });
 
                           setState(() {});
