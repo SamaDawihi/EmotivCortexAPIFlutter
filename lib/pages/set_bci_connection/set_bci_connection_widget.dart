@@ -175,7 +175,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                         onPressed: () async {
                           _model.getCortexInfo = await actions.aGetCortexInfo();
                           setState(() {
-                            _model.getCortexInfoError = _model.doesHasAccess;
+                            _model.getCortexInfoError = _model.getCortexInfo;
                           });
 
                           setState(() {});

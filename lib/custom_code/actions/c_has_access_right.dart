@@ -24,7 +24,7 @@ Future<String> cHasAccessRight(
       Completer<String>(); // Use Completer to handle async operation
 
   channel.sink.add(
-      '{ "id": 2, "jsonrpc": "2.0", "method": "hasAccessRightRightRٌ", "params": { "clientId": "$clientId", "clientSecret": "$clientSecret" } }');
+      '{ "id": 2, "jsonrpc": "2.0", "method": "hasAccessRight", "params": { "clientId": "$clientId", "clientSecret": "$clientSecret" } }');
   channel.stream.listen(
     (message) {
       print('Received message: $message');
