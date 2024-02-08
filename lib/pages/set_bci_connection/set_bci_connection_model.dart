@@ -13,6 +13,17 @@ class SetBciConnectionModel extends FlutterFlowModel<SetBciConnectionWidget> {
 
   String? queryHeadsetError;
 
+  List<String> availableHeadsets = [];
+  void addToAvailableHeadsets(String item) => availableHeadsets.add(item);
+  void removeFromAvailableHeadsets(String item) =>
+      availableHeadsets.remove(item);
+  void removeAtIndexFromAvailableHeadsets(int index) =>
+      availableHeadsets.removeAt(index);
+  void insertAtIndexInAvailableHeadsets(int index, String item) =>
+      availableHeadsets.insert(index, item);
+  void updateAvailableHeadsetsAtIndex(int index, Function(String) updateFn) =>
+      availableHeadsets[index] = updateFn(availableHeadsets[index]);
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

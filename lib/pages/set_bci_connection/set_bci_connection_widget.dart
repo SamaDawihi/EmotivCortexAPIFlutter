@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -349,6 +350,14 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                           _model.queredHeadsets = await actions.dQueryHeadset();
                           setState(() {
                             _model.queryHeadsetError = _model.queredHeadsets;
+                            _model
+                                .addToAvailableHeadsets(valueOrDefault<String>(
+                              getJsonField(
+                                functions.stringToJson(_model.queredHeadsets!),
+                                r'''$.result''',
+                              )?.toString(),
+                              'default',
+                            ));
                           });
 
                           setState(() {});
@@ -394,6 +403,62 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                           color: FlutterFlowTheme.of(context).error,
                         ),
                   ),
+                Text(
+                  'Quered Headsets',
+                  style: FlutterFlowTheme.of(context).displayMedium,
+                ),
+                Builder(
+                  builder: (context) {
+                    final availableHeadset = _model.availableHeadsets.toList();
+                    return ListView.separated(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: availableHeadset.length,
+                      separatorBuilder: (_, __) => const SizedBox(height: 5.0),
+                      itemBuilder: (context, availableHeadsetIndex) {
+                        final availableHeadsetItem =
+                            availableHeadset[availableHeadsetIndex];
+                        return Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Hello World',
+                              style: FlutterFlowTheme.of(context).headlineLarge,
+                            ),
+                            FFButtonWidget(
+                              onPressed: () {
+                                print('Button pressed ...');
+                              },
+                              text: 'Connect',
+                              options: FFButtonOptions(
+                                height: 40.0,
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Colors.white,
+                                    ),
+                                elevation: 3.0,
+                                borderSide: const BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                ),
               ].divide(const SizedBox(height: 8.0)),
             ),
           ),
