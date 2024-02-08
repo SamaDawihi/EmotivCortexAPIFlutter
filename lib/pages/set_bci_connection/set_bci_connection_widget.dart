@@ -338,6 +338,62 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                           color: FlutterFlowTheme.of(context).error,
                         ),
                   ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          _model.queredHeadsets = await actions.dQueryHeadset();
+                          setState(() {
+                            _model.queryHeadsetError = _model.queryHeadsetError;
+                          });
+
+                          setState(() {});
+                        },
+                        text: 'Query headset',
+                        options: FFButtonOptions(
+                          width: 120.0,
+                          height: 40.0,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
+                          elevation: 0.0,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Container(
+                        width: 20.0,
+                        height: 20.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).error,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                  ].divide(const SizedBox(width: 10.0)),
+                ),
+                if (_model.queryHeadsetError != null &&
+                    _model.queryHeadsetError != '')
+                  Text(
+                    _model.queryHeadsetError!,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          color: FlutterFlowTheme.of(context).error,
+                        ),
+                  ),
               ].divide(const SizedBox(height: 8.0)),
             ),
           ),

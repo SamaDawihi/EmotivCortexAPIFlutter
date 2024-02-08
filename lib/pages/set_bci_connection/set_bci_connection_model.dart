@@ -11,6 +11,8 @@ class SetBciConnectionModel extends FlutterFlowModel<SetBciConnectionWidget> {
 
   String? hasAccessError;
 
+  String? queryHeadsetError;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -28,6 +30,8 @@ class SetBciConnectionModel extends FlutterFlowModel<SetBciConnectionWidget> {
   String? accessRequest;
   // Stores action output result for [Custom Action - cHasAccessRight] action in Button widget.
   String? doesHasAccess;
+  // Stores action output result for [Custom Action - dQueryHeadset] action in Button widget.
+  String? queredHeadsets;
 
   /// Initialization and disposal methods.
 
