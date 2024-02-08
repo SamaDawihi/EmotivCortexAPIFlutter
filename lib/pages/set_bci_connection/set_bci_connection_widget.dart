@@ -175,7 +175,66 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                         onPressed: () async {
                           _model.getCortexInfo = await actions.aGetCortexInfo();
                           setState(() {
-                            _model.aacessError = _model.getCortexInfo;
+                            _model.getCortexInfoError = _model.doesHasAccess;
+                          });
+
+                          setState(() {});
+                        },
+                        text: 'Get Cortex Info',
+                        options: FFButtonOptions(
+                          width: 120.0,
+                          height: 40.0,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
+                          elevation: 0.0,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Container(
+                        width: 20.0,
+                        height: 20.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).error,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                  ].divide(const SizedBox(width: 10.0)),
+                ),
+                if (_model.getCortexInfoError != null &&
+                    _model.getCortexInfoError != '')
+                  Text(
+                    _model.getCortexInfoError!,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          color: FlutterFlowTheme.of(context).error,
+                        ),
+                  ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          _model.accessRequest = await actions.bRequestAccess(
+                            _model.textController1.text,
+                            _model.textController2.text,
+                          );
+                          setState(() {
+                            _model.aacessError = _model.accessRequest;
                           });
 
                           setState(() {});
@@ -205,9 +264,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                         width: 20.0,
                         height: 20.0,
                         decoration: BoxDecoration(
-                          color: FFAppState().authorized
-                              ? FlutterFlowTheme.of(context).success
-                              : FlutterFlowTheme.of(context).error,
+                          color: FlutterFlowTheme.of(context).error,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -217,6 +274,65 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                 if (_model.aacessError != null && _model.aacessError != '')
                   Text(
                     _model.aacessError!,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          color: FlutterFlowTheme.of(context).error,
+                        ),
+                  ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          _model.doesHasAccess = await actions.cHasAccessRight(
+                            _model.textController1.text,
+                            _model.textController2.text,
+                          );
+                          setState(() {
+                            _model.hasAccessError = _model.doesHasAccess;
+                          });
+
+                          setState(() {});
+                        },
+                        text: 'Has Access Right?',
+                        options: FFButtonOptions(
+                          width: 120.0,
+                          height: 40.0,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
+                          elevation: 0.0,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Container(
+                        width: 20.0,
+                        height: 20.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).error,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                  ].divide(const SizedBox(width: 10.0)),
+                ),
+                if (_model.hasAccessError != null &&
+                    _model.hasAccessError != '')
+                  Text(
+                    _model.hasAccessError!,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).error,

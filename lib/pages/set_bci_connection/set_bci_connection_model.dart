@@ -7,6 +7,10 @@ class SetBciConnectionModel extends FlutterFlowModel<SetBciConnectionWidget> {
 
   String? aacessError;
 
+  String? getCortexInfoError;
+
+  String? hasAccessError;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -20,6 +24,10 @@ class SetBciConnectionModel extends FlutterFlowModel<SetBciConnectionWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   // Stores action output result for [Custom Action - aGetCortexInfo] action in Button widget.
   String? getCortexInfo;
+  // Stores action output result for [Custom Action - bRequestAccess] action in Button widget.
+  String? accessRequest;
+  // Stores action output result for [Custom Action - cHasAccessRight] action in Button widget.
+  String? doesHasAccess;
 
   /// Initialization and disposal methods.
 

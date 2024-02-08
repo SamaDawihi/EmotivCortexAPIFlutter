@@ -32,20 +32,15 @@ class FFAppState extends ChangeNotifier {
 
   late SharedPreferences prefs;
 
-  bool _authorized = false;
-  bool get authorized => _authorized;
-  set authorized(bool value) {
-    _authorized = value;
-  }
-
-  String _clientId = '';
+  String _clientId = 'CkXnClNZKVdp00AN3EsXWwXtWhocR57vkG46NEx0';
   String get clientId => _clientId;
   set clientId(String value) {
     _clientId = value;
     prefs.setString('ff_clientId', value);
   }
 
-  String _clientSecret = '';
+  String _clientSecret =
+      'uNvvXqglXVktp3nlzN7zNjLragEktCBYRoLVQWfrF0mkC1l3c3Lbnc91gdjRpfgl6tX0VpMKVFq6Q7dknHN4McGxFLu99kLGIy9Mi61R9mGQfK4Nshqbc1M3JjwXoP3W';
   String get clientSecret => _clientSecret;
   set clientSecret(String value) {
     _clientSecret = value;

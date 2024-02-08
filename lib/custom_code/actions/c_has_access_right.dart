@@ -10,16 +10,21 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/status.dart' as status;
 import 'dart:async';
 
-Future<String> aGetCortexInfo() async {
+Future<String> cHasAccessRight(
+  String clientId,
+  String clientSecret,
+) async {
   // Add your function code here!
-  print('aGetCortexInfo Start');
+
+  print('cHasAccessRight Start');
   final wsUrl = Uri.parse('wss://localhost:6868');
   final channel = WebSocketChannel.connect(wsUrl);
 
   final completer =
       Completer<String>(); // Use Completer to handle async operation
 
-  channel.sink.add('{"id":1,"jsonrpc":"2.0","method":"getCortexInfo"}');
+  channel.sink.add(
+      '{ "id": 2, "jsonrpc": "2.0", "method": "hasAccessRightRightRٌ", "params": { "clientId": "$clientId", "clientSecret": "$clientSecret" } }');
   channel.stream.listen(
     (message) {
       print('Received message: $message');
@@ -37,9 +42,9 @@ Future<String> aGetCortexInfo() async {
     },
   );
 
-  print('aGetCortexInfo before await');
+  print('cHasAccessRight before await');
   await completer.future; // Wait for the Future to be completed
-  print('aGetCortexInfo after await');
+  print('cHasAccessRight after await');
 
   return completer.future;
 }
