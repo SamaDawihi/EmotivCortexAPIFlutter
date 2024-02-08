@@ -424,7 +424,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Hello World',
+                              availableHeadsetItem,
                               style: FlutterFlowTheme.of(context).headlineLarge,
                             ),
                             FFButtonWidget(
