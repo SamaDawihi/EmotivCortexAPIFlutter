@@ -18,8 +18,8 @@ class SetBciConnectionModel extends FlutterFlowModel<SetBciConnectionWidget> {
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
-  // Stores action output result for [Custom Action - aNewCustomAction] action in Button widget.
-  dynamic getCortexInfo;
+  // Stores action output result for [Custom Action - aGetCortexInfo] action in Button widget.
+  String? getCortexInfo;
 
   /// Initialization and disposal methods.
 

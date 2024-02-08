@@ -1,1 +1,1 @@
-export 'a_new_custom_action.dart' show aNewCustomAction;
+export 'a_get_cortex_info.dart' show aGetCortexInfo;

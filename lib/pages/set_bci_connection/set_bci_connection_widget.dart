@@ -173,11 +173,9 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                     Expanded(
                       child: FFButtonWidget(
                         onPressed: () async {
-                          _model.getCortexInfo =
-                              await actions.aNewCustomAction();
+                          _model.getCortexInfo = await actions.aGetCortexInfo();
                           setState(() {
-                            _model.aacessError =
-                                _model.getCortexInfo?.toString();
+                            _model.aacessError = _model.getCortexInfo;
                           });
 
                           setState(() {});
