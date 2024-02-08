@@ -348,7 +348,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                         onPressed: () async {
                           _model.queredHeadsets = await actions.dQueryHeadset();
                           setState(() {
-                            _model.queryHeadsetError = _model.queryHeadsetError;
+                            _model.queryHeadsetError = _model.queredHeadsets;
                           });
 
                           setState(() {});
