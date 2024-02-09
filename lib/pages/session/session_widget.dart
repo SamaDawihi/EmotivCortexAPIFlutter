@@ -75,6 +75,7 @@ class _SessionWidgetState extends State<SessionWidget> {
                       _model.subscribeAction?.af3.length.toString(),
                       'error',
                     );
+                    _model.eeg = _model.subscribeAction;
                   });
                   return;
                 } else {
