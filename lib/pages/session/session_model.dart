@@ -11,9 +11,7 @@ class SessionModel extends FlutterFlowModel<SessionWidget> {
 
   String? licenseInfo;
 
-  String? sessionId;
-
-  String? subscribedStreem;
+  String? subscribedStream;
 
   ///  State fields for stateful widgets in this page.
 
@@ -30,9 +28,7 @@ class SessionModel extends FlutterFlowModel<SessionWidget> {
   String? authorizeAction;
   // Stores action output result for [Custom Action - fGetLicenseInfo] action in Session widget.
   String? licenseInfoAction;
-  // Stores action output result for [Custom Action - gCreateSession] action in Session widget.
-  String? createSessionAction;
-  // Stores action output result for [Custom Action - hSubscribe] action in Session widget.
+  // Stores action output result for [Custom Action - gSubscribe] action in Session widget.
   String? subscribeAction;
 
   /// Initialization and disposal methods.

@@ -1,4 +1,5 @@
 // Automatic FlutterFlow imports
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
@@ -9,7 +10,6 @@ import 'package:flutter/material.dart';
 
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/status.dart' as status;
-import 'dart:async';
 
 Future<String> aGetCortexInfo() async {
   // Add your function code here!
@@ -17,30 +17,7 @@ Future<String> aGetCortexInfo() async {
   final wsUrl = Uri.parse('wss://localhost:6868');
   final channel = WebSocketChannel.connect(wsUrl);
 
-  final completer =
-      Completer<String>(); // Use Completer to handle async operation
-
   channel.sink.add('{"id":1,"jsonrpc":"2.0","method":"getCortexInfo"}');
-  channel.stream.listen(
-    (message) {
-      print('Received message: $message');
-      completer
-          .complete(message); // Complete the Future with the received message
-      channel.sink.close(status.goingAway);
-    },
-    onDone: () {
-      print('WebSocket closed');
-    },
-    onError: (error) {
-      print('Error: $error');
-      completer.completeError(
-          error); // Complete the Future with an error if encountered
-    },
-  );
 
-  print('aGetCortexInfo before await');
-  await completer.future; // Wait for the Future to be completed
-  print('aGetCortexInfo after await');
-
-  return completer.future;
+  return await channel.stream.first;
 }
