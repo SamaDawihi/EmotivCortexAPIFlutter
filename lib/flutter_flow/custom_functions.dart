@@ -21,6 +21,13 @@ bool getIsUserLogedIn(String json) {
   return result.isNotEmpty;
 }
 
+String getSessionId(String json) {
+  // return all id {"id":3,"jsonrpc":"2.0","result":{"accessGranted":true,"message":"The access right to the application has already been granted."}}
+  final Map<String, dynamic> data = jsonDecode(json);
+  final dynamic result = data['result'];
+  return result['id'];
+}
+
 bool getEmotivIsInstalled(String json) {
   try {
     final Map<String, dynamic> data = jsonDecode(json);
@@ -49,6 +56,13 @@ bool getEmotivIsInstalled(String json) {
     print('Error occurred. Emotiv is not installed.');
     return false; // Error occurred, indicating Emotiv is not installed
   }
+}
+
+String getCortexToken(String json) {
+  // return all id {"id":3,"jsonrpc":"2.0","result":{"accessGranted":true,"message":"The access right to the application has already been granted."}}
+  final Map<String, dynamic> data = jsonDecode(json);
+  final dynamic result = data['result'];
+  return result['cortexToken'];
 }
 
 List<String> getAvailableHeadsetId(String json) {

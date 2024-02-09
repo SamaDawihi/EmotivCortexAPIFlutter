@@ -31,7 +31,7 @@ class _SessionWidgetState extends State<SessionWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.getCortexInfoCopy = await actions.aGetCortexInfo();
       if (functions.getEmotivIsInstalled(_model.getCortexInfoCopy!)) {
-        _model.getUserLogin = await actions.eGetUserLogin();
+        _model.getUserLogin = await actions.aGetUserLogin();
         if (functions.getIsUserLogedIn(_model.getUserLogin!)) {
           _model.hasAccessRightCopy = await actions.cHasAccessRight(
             FFAppState().clientId,
@@ -47,6 +47,28 @@ class _SessionWidgetState extends State<SessionWidget> {
                     .contains(FFAppState().defaultHeadset)) {
                   setState(() {
                     _model.headsetId = FFAppState().defaultHeadset;
+                  });
+                  _model.authorizeAction = await actions.eAuthorize(
+                    FFAppState().clientId,
+                    FFAppState().clientId,
+                  );
+                  setState(() {
+                    _model.cortexToken =
+                        functions.getCortexToken(_model.authorizeAction!);
+                  });
+                  _model.licenseInfoAction = await actions.fGetLicenseInfo(
+                    _model.cortexToken!,
+                  );
+                  setState(() {
+                    _model.licenseInfo = _model.licenseInfoAction;
+                  });
+                  _model.createSessionAction = await actions.gCreateSession(
+                    _model.cortexToken!,
+                    _model.headsetId!,
+                  );
+                  setState(() {
+                    _model.sessionId =
+                        functions.getSessionId(_model.createSessionAction!);
                   });
                   return;
                 } else {
@@ -290,9 +312,22 @@ class _SessionWidgetState extends State<SessionWidget> {
             padding: const EdgeInsets.all(6.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Current Headset: ${_model.headsetId}',
+                  style: FlutterFlowTheme.of(context).titleLarge,
+                ),
+                Text(
+                  'CortexToken: ${_model.cortexToken}',
+                  style: FlutterFlowTheme.of(context).titleLarge,
+                ),
+                Text(
+                  'License Info: ${_model.licenseInfo}',
+                  style: FlutterFlowTheme.of(context).titleLarge,
+                ),
+                Text(
+                  'Session ID: ${_model.sessionId}',
                   style: FlutterFlowTheme.of(context).titleLarge,
                 ),
               ],

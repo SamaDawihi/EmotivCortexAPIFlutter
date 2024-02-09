@@ -11,9 +11,9 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/status.dart' as status;
 import 'dart:async';
 
-Future<String> eGetUserLogin() async {
+Future<String> aGetUserLogin() async {
   // Add your function code here!
-  print('eGetUserLogin Start');
+  print('aGetUserLogin Start');
   final wsUrl = Uri.parse('wss://localhost:6868');
   final channel = WebSocketChannel.connect(wsUrl);
 
@@ -38,9 +38,9 @@ Future<String> eGetUserLogin() async {
     },
   );
 
-  print('eGetUserLogin before await');
+  print('aGetUserLogin before await');
   await completer.future; // Wait for the Future to be completed
-  print('eGetUserLogin after await');
+  print('aGetUserLogin after await');
 
   return completer.future;
 }

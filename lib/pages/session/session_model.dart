@@ -7,17 +7,29 @@ class SessionModel extends FlutterFlowModel<SessionWidget> {
 
   String? headsetId;
 
+  String? cortexToken;
+
+  String? licenseInfo;
+
+  String? sessionId;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - aGetCortexInfo] action in Session widget.
   String? getCortexInfoCopy;
-  // Stores action output result for [Custom Action - eGetUserLogin] action in Session widget.
+  // Stores action output result for [Custom Action - aGetUserLogin] action in Session widget.
   String? getUserLogin;
   // Stores action output result for [Custom Action - cHasAccessRight] action in Session widget.
   String? hasAccessRightCopy;
   // Stores action output result for [Custom Action - dQueryHeadset] action in Session widget.
   String? queryHeadsetsCopy;
+  // Stores action output result for [Custom Action - eAuthorize] action in Session widget.
+  String? authorizeAction;
+  // Stores action output result for [Custom Action - fGetLicenseInfo] action in Session widget.
+  String? licenseInfoAction;
+  // Stores action output result for [Custom Action - gCreateSession] action in Session widget.
+  String? createSessionAction;
 
   /// Initialization and disposal methods.
 

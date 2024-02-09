@@ -37,7 +37,7 @@ class SetBciConnectionModel extends FlutterFlowModel<SetBciConnectionWidget> {
   final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - aGetCortexInfo] action in SetBciConnection widget.
   String? getCortexInfoCopyCopy;
-  // Stores action output result for [Custom Action - eGetUserLogin] action in SetBciConnection widget.
+  // Stores action output result for [Custom Action - aGetUserLogin] action in SetBciConnection widget.
   String? getUserLoginCopy;
   // Stores action output result for [Custom Action - cHasAccessRight] action in SetBciConnection widget.
   String? hasAccessRightCopyCopy;
@@ -53,7 +53,7 @@ class SetBciConnectionModel extends FlutterFlowModel<SetBciConnectionWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   // Stores action output result for [Custom Action - aGetCortexInfo] action in Button widget.
   String? getCortexInfoCopy;
-  // Stores action output result for [Custom Action - eGetUserLogin] action in Button widget.
+  // Stores action output result for [Custom Action - aGetUserLogin] action in Button widget.
   String? getUserLogin;
   // Stores action output result for [Custom Action - cHasAccessRight] action in Button widget.
   String? hasAccessRightCopy;

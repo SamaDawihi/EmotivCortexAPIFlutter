@@ -34,7 +34,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
         setState(() {
           _model.emotivInstalled = true;
         });
-        _model.getUserLoginCopy = await actions.eGetUserLogin();
+        _model.getUserLoginCopy = await actions.aGetUserLogin();
         if (functions.getIsUserLogedIn(_model.getUserLoginCopy!)) {
           setState(() {
             _model.logedInEmotiv = true;
@@ -364,7 +364,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                                 _model.emotivInstalled = true;
                               });
                               _model.getUserLogin =
-                                  await actions.eGetUserLogin();
+                                  await actions.aGetUserLogin();
                               shouldSetState = true;
                               if (functions
                                   .getIsUserLogedIn(_model.getUserLogin!)) {
