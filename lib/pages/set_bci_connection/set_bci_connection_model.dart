@@ -35,6 +35,14 @@ class SetBciConnectionModel extends FlutterFlowModel<SetBciConnectionWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Custom Action - aGetCortexInfo] action in SetBciConnection widget.
+  String? getCortexInfoCopyCopy;
+  // Stores action output result for [Custom Action - eGetUserLogin] action in SetBciConnection widget.
+  String? getUserLoginCopy;
+  // Stores action output result for [Custom Action - cHasAccessRight] action in SetBciConnection widget.
+  String? hasAccessRightCopyCopy;
+  // Stores action output result for [Custom Action - dQueryHeadset] action in SetBciConnection widget.
+  String? queryHeadsetsCopyCopy;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;

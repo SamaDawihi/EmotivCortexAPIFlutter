@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'set_bci_connection_model.dart';
@@ -25,6 +26,125 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SetBciConnectionModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.getCortexInfoCopyCopy = await actions.aGetCortexInfo();
+      if (functions.getEmotivIsInstalled(_model.getCortexInfoCopyCopy!)) {
+        setState(() {
+          _model.emotivInstalled = true;
+        });
+        _model.getUserLoginCopy = await actions.eGetUserLogin();
+        if (functions.getIsUserLogedIn(_model.getUserLoginCopy!)) {
+          setState(() {
+            _model.logedInEmotiv = true;
+          });
+          _model.hasAccessRightCopyCopy = await actions.cHasAccessRight(
+            FFAppState().clientId,
+            FFAppState().clientSecret,
+          );
+          if (functions.getHasAccessRight(_model.hasAccessRightCopyCopy!)) {
+            setState(() {
+              _model.hasAccessRight = true;
+            });
+            _model.queryHeadsetsCopyCopy = await actions.dQueryHeadset();
+            setState(() {
+              _model.availableHeadsets = functions
+                  .getAvailableHeadsetId(_model.queryHeadsetsCopyCopy!)
+                  .toList()
+                  .cast<String>();
+            });
+            if (_model.availableHeadsets.isNotEmpty) {
+              setState(() {
+                _model.deviceIsConnected = true;
+              });
+              return;
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    'No Device Available',
+                    style: TextStyle(
+                      color: FlutterFlowTheme.of(context).primaryText,
+                    ),
+                  ),
+                  duration: const Duration(milliseconds: 4000),
+                  backgroundColor: FlutterFlowTheme.of(context).error,
+                ),
+              );
+              setState(() {
+                _model.deviceIsConnected = false;
+                _model.availableHeadsets = [];
+                _model.queryHeadsetError = _model.queryHeadsetsCopyCopy;
+              });
+              return;
+            }
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  'Access Right Isnt Granted, Click Request Access',
+                  style: TextStyle(
+                    color: FlutterFlowTheme.of(context).primaryText,
+                  ),
+                ),
+                duration: const Duration(milliseconds: 4000),
+                backgroundColor: FlutterFlowTheme.of(context).error,
+              ),
+            );
+            setState(() {
+              _model.hasAccessRight = false;
+              _model.deviceIsConnected = false;
+              _model.availableHeadsets = [];
+              _model.hasAccessError = _model.hasAccessRightCopyCopy;
+            });
+            return;
+          }
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'User Is Not Logged in',
+                style: TextStyle(
+                  color: FlutterFlowTheme.of(context).primaryText,
+                ),
+              ),
+              duration: const Duration(milliseconds: 4000),
+              backgroundColor: FlutterFlowTheme.of(context).error,
+            ),
+          );
+          setState(() {
+            _model.logedInEmotiv = false;
+            _model.hasAccessRight = false;
+            _model.deviceIsConnected = false;
+            _model.availableHeadsets = [];
+          });
+          return;
+        }
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Emotive Launcher Is not installed',
+              style: TextStyle(
+                color: FlutterFlowTheme.of(context).primaryText,
+              ),
+            ),
+            duration: const Duration(milliseconds: 4000),
+            backgroundColor: FlutterFlowTheme.of(context).error,
+          ),
+        );
+        setState(() {
+          _model.emotivInstalled = false;
+          _model.logedInEmotiv = false;
+          _model.hasAccessRight = false;
+          _model.deviceIsConnected = false;
+          _model.availableHeadsets = [];
+          _model.getCortexInfoError = _model.getCortexInfoCopyCopy;
+        });
+        return;
+      }
+    });
 
     _model.textController1 ??=
         TextEditingController(text: FFAppState().clientId);
@@ -381,7 +501,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
 
                             if (shouldSetState) setState(() {});
                           },
-                          text: 'Check',
+                          text: 'Recheck',
                           options: FFButtonOptions(
                             height: 40.0,
                             padding: const EdgeInsetsDirectional.fromSTEB(
