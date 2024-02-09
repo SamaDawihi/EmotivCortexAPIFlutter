@@ -334,7 +334,7 @@ class _SessionWidgetState extends State<SessionWidget> {
                   style: FlutterFlowTheme.of(context).titleLarge,
                 ),
                 Text(
-                  'Subscribe: ${_model.subscribedStream} - AF3: ${_model.eeg?.o2.last.toString()}',
+                  'Subscribe: ${_model.subscribedStream}',
                   style: FlutterFlowTheme.of(context).titleLarge,
                 ),
               ],

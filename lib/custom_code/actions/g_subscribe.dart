@@ -99,8 +99,8 @@ Future<EegStruct> gSubscribe(String cortexToken, String headsetId) async {
           }
           print("responses.length: ${responses.length}");
           if (responses.length >= 128) {
-            print("responses.first: ${responses.first}");
-            print("responses.last: ${responses.last}");
+            print("eeg.af3.length: ${eeg.af3.length}");
+            print("eeg.af3.first: ${eeg.af3.first}");
             print(
                 'gSubscribe: Reached 128 records. Closing WebSocket channel.');
             channel.sink.close(status.goingAway);
