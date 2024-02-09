@@ -12,7 +12,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/status.dart' as status;
 import 'dart:async';
 
-Future<EegStruct> gSubscribe(String cortexToken, String headsetId) async {
+Future<String> gSubscribe(String cortexToken, String headsetId) async {
   // Add your function code here!
   print('gSubscribe: Create session start');
   final wsUrl = Uri.parse('wss://localhost:6868');
@@ -114,5 +114,5 @@ Future<EegStruct> gSubscribe(String cortexToken, String headsetId) async {
     completer.completeError(error);
   }
 
-  return eeg;
+  return eeg.toMap().toString();
 }
