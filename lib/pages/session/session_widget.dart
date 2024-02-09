@@ -1,4 +1,3 @@
-import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -335,40 +334,9 @@ class _SessionWidgetState extends State<SessionWidget> {
                   style: FlutterFlowTheme.of(context).titleLarge,
                 ),
                 Text(
-                  'Subscribe: ${_model.subscribedStream}',
+                  'Subscribe: ${_model.subscribedStream} - AF3: ${_model.eeg?.o2.last.toString()}',
                   style: FlutterFlowTheme.of(context).titleLarge,
                 ),
-                if (_model.eeg != null)
-                  SizedBox(
-                    width: 370.0,
-                    height: 230.0,
-                    child: FlutterFlowLineChart(
-                      data: [
-                        FFLineChartData(
-                          xData: _model.eeg!.af3,
-                          yData: _model.eeg!.af3,
-                          settings: LineChartBarData(
-                            color: FlutterFlowTheme.of(context).primary,
-                            barWidth: 2.0,
-                            isCurved: true,
-                            dotData: FlDotData(show: false),
-                            belowBarData: BarAreaData(
-                              show: true,
-                              color: FlutterFlowTheme.of(context).accent1,
-                            ),
-                          ),
-                        )
-                      ],
-                      chartStylingInfo: ChartStylingInfo(
-                        backgroundColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
-                        showBorder: false,
-                      ),
-                      axisBounds: const AxisBounds(),
-                      xAxisLabelInfo: const AxisLabelInfo(),
-                      yAxisLabelInfo: const AxisLabelInfo(),
-                    ),
-                  ),
               ],
             ),
           ),
