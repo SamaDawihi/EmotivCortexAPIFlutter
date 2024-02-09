@@ -105,7 +105,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('SetBciConnection');
+                    context.pushNamed('Session');
                   },
                   text: 'Start Session',
                   options: FFButtonOptions(

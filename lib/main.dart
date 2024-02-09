@@ -102,6 +102,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'HomePage': const HomePageWidget(),
       'SetBciConnection': const SetBciConnectionWidget(),
+      'Session': const SessionWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -133,6 +134,14 @@ class _NavBarPageState extends State<NavBarPage> {
               FontAwesomeIcons.brain,
             ),
             label: '',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.sensors,
+              size: 24.0,
+            ),
+            label: 'Session',
             tooltip: '',
           )
         ],
