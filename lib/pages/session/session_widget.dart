@@ -71,7 +71,7 @@ class _SessionWidgetState extends State<SessionWidget> {
                   );
                   setState(() {
                     _model.subscribedStream = valueOrDefault<String>(
-                      _model.subscribeAction,
+                      (_model.subscribeAction?.toMap())?.toString(),
                       'error',
                     );
                   });

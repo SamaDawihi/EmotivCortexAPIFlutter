@@ -34,7 +34,7 @@ class SessionModel extends FlutterFlowModel<SessionWidget> {
   // Stores action output result for [Custom Action - fGetLicenseInfo] action in Session widget.
   String? licenseInfoAction;
   // Stores action output result for [Custom Action - gSubscribe] action in Session widget.
-  String? subscribeAction;
+  EegStruct? subscribeAction;
 
   /// Initialization and disposal methods.
 
