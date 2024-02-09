@@ -6,4 +6,5 @@ export 'c_has_access_right.dart' show cHasAccessRight;
 export 'd_query_headset.dart' show dQueryHeadset;
 export 'g_create_session.dart' show gCreateSession;
 export 'h_subscribe.dart' show hSubscribe;
+export 'i_query_sessions.dart' show iQuerySessions;
 export 'f_get_license_info.dart' show fGetLicenseInfo;
