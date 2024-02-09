@@ -71,7 +71,7 @@ class _SessionWidgetState extends State<SessionWidget> {
                   );
                   setState(() {
                     _model.subscribedStream = valueOrDefault<String>(
-                      _model.subscribeAction?.af3.length.toString(),
+                      _model.subscribeAction?.af3.first.toString(),
                       'error',
                     );
                     _model.eeg = _model.subscribeAction;
