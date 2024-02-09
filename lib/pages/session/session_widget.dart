@@ -72,6 +72,13 @@ class _SessionWidgetState extends State<SessionWidget> {
                     _model.sessionId =
                         functions.getSessionId(_model.createSessionAction!);
                   });
+                  _model.subscribeAction = await actions.hSubscribe(
+                    _model.cortexToken!,
+                    _model.sessionId!,
+                  );
+                  setState(() {
+                    _model.subscribedStreem = _model.subscribeAction;
+                  });
                   return;
                 } else {
                   var confirmDialogResponse = await showDialog<bool>(
@@ -330,6 +337,10 @@ class _SessionWidgetState extends State<SessionWidget> {
                 ),
                 Text(
                   'Session ID: ${_model.sessionId}',
+                  style: FlutterFlowTheme.of(context).titleLarge,
+                ),
+                Text(
+                  'Subscribe: ${_model.subscribedStreem}',
                   style: FlutterFlowTheme.of(context).titleLarge,
                 ),
               ],

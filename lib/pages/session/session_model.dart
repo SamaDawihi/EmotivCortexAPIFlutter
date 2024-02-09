@@ -13,6 +13,8 @@ class SessionModel extends FlutterFlowModel<SessionWidget> {
 
   String? sessionId;
 
+  String? subscribedStreem;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -30,6 +32,8 @@ class SessionModel extends FlutterFlowModel<SessionWidget> {
   String? licenseInfoAction;
   // Stores action output result for [Custom Action - gCreateSession] action in Session widget.
   String? createSessionAction;
+  // Stores action output result for [Custom Action - hSubscribe] action in Session widget.
+  String? subscribeAction;
 
   /// Initialization and disposal methods.
 
