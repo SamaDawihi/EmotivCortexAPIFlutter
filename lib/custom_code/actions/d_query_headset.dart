@@ -22,7 +22,7 @@ Future<String> dQueryHeadset() async {
       Completer<String>(); // Use Completer to handle async operation
 
   channel.sink.add(
-      '{ "id": 4, "jsonrpc": "2.0", "method": "queryHeadsets", "params": { "id": "EPOC-*" } }');
+      '{ "id": 5, "jsonrpc": "2.0", "method": "queryHeadsets", "params": { "id": "EPOC-*" } }');
   channel.stream.listen(
     (message) {
       print('Received message: $message');

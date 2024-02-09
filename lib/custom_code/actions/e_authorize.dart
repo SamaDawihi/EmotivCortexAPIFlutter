@@ -25,7 +25,7 @@ Future<String> eAuthorize(
       Completer<String>(); // Use Completer to handle async operation
 
   channel.sink.add(
-      '{ "id": 2, "jsonrpc": "2.0", "method": "authorize", "params": { "clientId": "$clientId", "clientSecret": "$clientSecret", "debit": 3}}');
+      '{ "id": 6, "jsonrpc": "2.0", "method": "authorize", "params": { "clientId": "$clientId", "clientSecret": "$clientSecret", "debit": 3}}');
   channel.stream.listen(
     (message) {
       print('Received message: $message');

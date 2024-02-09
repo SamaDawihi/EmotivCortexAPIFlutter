@@ -22,7 +22,7 @@ Future<String> gCreateSession(String cortexToken, String headset) async {
       Completer<String>(); // Use Completer to handle async operation
 
   channel.sink.add(
-      '{ "id": 2, "jsonrpc": "2.0", "method": "createSession", "params": { "cortexToken": "$cortexToken", "headset", "$headset", "status": "active"}}');
+      '{ "id": 9, "jsonrpc": "2.0", "method": "createSession", "params": { "cortexToken": "$cortexToken", "headset": "$headset", "status": "active"}}');
   channel.stream.listen(
     (message) {
       print('Received message: $message');

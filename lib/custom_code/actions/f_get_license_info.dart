@@ -22,7 +22,7 @@ Future<String> fGetLicenseInfo(String cortexToken) async {
       Completer<String>(); // Use Completer to handle async operation
 
   channel.sink.add(
-      '{ "id": 2, "jsonrpc": "2.0", "method": "getLicenseInfo", "params": { "cortexToken": "$cortexToken"}}');
+      '{ "id": 8, "jsonrpc": "2.0", "method": "getLicenseInfo", "params": { "cortexToken": "$cortexToken"}}');
   channel.stream.listen(
     (message) {
       print('Received message: $message');

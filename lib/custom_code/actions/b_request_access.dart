@@ -25,7 +25,7 @@ Future<String> bRequestAccess(
       Completer<String>(); // Use Completer to handle async operation
 
   channel.sink.add(
-      '{ "id": 2, "jsonrpc": "2.0", "method": "requestAccess", "params": { "clientId": "$clientId", "clientSecret": "$clientSecret" } }');
+      '{ "id": 3, "jsonrpc": "2.0", "method": "requestAccess", "params": { "clientId": "$clientId", "clientSecret": "$clientSecret" } }');
   channel.stream.listen(
     (message) {
       print('Received message: $message');

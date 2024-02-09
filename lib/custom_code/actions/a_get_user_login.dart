@@ -20,7 +20,7 @@ Future<String> aGetUserLogin() async {
   final completer =
       Completer<String>(); // Use Completer to handle async operation
 
-  channel.sink.add('{ "id": 5, "jsonrpc": "2.0", "method": "getUserLogin" }');
+  channel.sink.add('{ "id": 2, "jsonrpc": "2.0", "method": "getUserLogin" }');
   channel.stream.listen(
     (message) {
       print('Received message: $message');

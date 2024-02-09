@@ -60,7 +60,9 @@ class _SessionWidgetState extends State<SessionWidget> {
                     _model.cortexToken!,
                   );
                   setState(() {
-                    _model.licenseInfo = _model.licenseInfoAction;
+                    _model.licenseInfo = functions
+                        .getLicenseHasEEG(_model.licenseInfoAction!)
+                        .toString();
                   });
                   _model.createSessionAction = await actions.gCreateSession(
                     _model.cortexToken!,
