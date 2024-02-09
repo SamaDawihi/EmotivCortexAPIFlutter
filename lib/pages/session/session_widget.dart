@@ -71,7 +71,7 @@ class _SessionWidgetState extends State<SessionWidget> {
                   );
                   setState(() {
                     _model.subscribedStream = valueOrDefault<String>(
-                      _model.subscribeAction?.af3.first.toString(),
+                      (_model.subscribeAction?.toMap())?.toString(),
                       'error',
                     );
                     _model.eeg = _model.subscribeAction;
@@ -320,23 +320,28 @@ class _SessionWidgetState extends State<SessionWidget> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                SelectionArea(
+                    child: Text(
                   'Current Headset: ${_model.headsetId}',
                   style: FlutterFlowTheme.of(context).titleLarge,
-                ),
-                AutoSizeText(
+                )),
+                SelectionArea(
+                    child: AutoSizeText(
                   'CortexToken: ${_model.cortexToken}',
                   style: FlutterFlowTheme.of(context).titleLarge,
                   minFontSize: 5.0,
-                ),
-                Text(
+                )),
+                SelectionArea(
+                    child: Text(
                   'License Info: ${_model.licenseInfo}',
                   style: FlutterFlowTheme.of(context).titleLarge,
-                ),
-                Text(
+                )),
+                SelectionArea(
+                    child: AutoSizeText(
                   'Subscribe: ${_model.subscribedStream}',
                   style: FlutterFlowTheme.of(context).titleLarge,
-                ),
+                  minFontSize: 5.0,
+                )),
               ],
             ),
           ),
