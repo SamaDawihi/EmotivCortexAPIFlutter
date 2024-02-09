@@ -24,6 +24,14 @@ class SetBciConnectionModel extends FlutterFlowModel<SetBciConnectionWidget> {
   void updateAvailableHeadsetsAtIndex(int index, Function(String) updateFn) =>
       availableHeadsets[index] = updateFn(availableHeadsets[index]);
 
+  bool emotivInstalled = false;
+
+  bool logedInEmotiv = false;
+
+  bool hasAccessRight = false;
+
+  bool deviceIsConnected = false;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -35,6 +43,14 @@ class SetBciConnectionModel extends FlutterFlowModel<SetBciConnectionWidget> {
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
+  // Stores action output result for [Custom Action - aGetCortexInfo] action in Button widget.
+  String? getCortexInfoCopy;
+  // Stores action output result for [Custom Action - eGetUserLogin] action in Button widget.
+  String? getUserLogin;
+  // Stores action output result for [Custom Action - cHasAccessRight] action in Button widget.
+  String? hasAccessRightCopy;
+  // Stores action output result for [Custom Action - dQueryHeadset] action in Button widget.
+  String? queryHeadsetsCopy;
   // Stores action output result for [Custom Action - aGetCortexInfo] action in Button widget.
   String? getCortexInfo;
   // Stores action output result for [Custom Action - bRequestAccess] action in Button widget.

@@ -73,398 +73,648 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
           top: true,
           child: Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.textController1,
-                    focusNode: _model.textFieldFocusNode1,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Client ID',
-                      hintText: 'Enter your client ID',
-                      hintStyle: FlutterFlowTheme.of(context).bodyLarge,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primary,
-                          width: 2.0,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                    child: TextFormField(
+                      controller: _model.textController1,
+                      focusNode: _model.textFieldFocusNode1,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Client ID',
+                        hintText: 'Enter your client ID',
+                        hintStyle: FlutterFlowTheme.of(context).bodyLarge,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: Color(0x00000000),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
+                        errorBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: Color(0x00000000),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                    validator:
-                        _model.textController1Validator.asValidator(context),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.textController2,
-                    focusNode: _model.textFieldFocusNode2,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Client Secret',
-                      hintText: 'Enter your client secret',
-                      hintStyle: FlutterFlowTheme.of(context).bodyLarge,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primary,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                    validator:
-                        _model.textController2Validator.asValidator(context),
-                  ),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          _model.getCortexInfo = await actions.aGetCortexInfo();
-                          setState(() {
-                            _model.getCortexInfoError = _model.getCortexInfo;
-                          });
-
-                          setState(() {});
-                        },
-                        text: 'Get Cortex Info',
-                        options: FFButtonOptions(
-                          width: 120.0,
-                          height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                  ),
-                          elevation: 0.0,
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: Color(0x00000000),
+                            width: 2.0,
+                          ),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      validator:
+                          _model.textController1Validator.asValidator(context),
                     ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
-                      child: Container(
-                        width: 20.0,
-                        height: 20.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).error,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                    ),
-                  ].divide(const SizedBox(width: 10.0)),
-                ),
-                if (_model.getCortexInfoError != null &&
-                    _model.getCortexInfoError != '')
-                  Text(
-                    _model.getCortexInfoError!,
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: FlutterFlowTheme.of(context).error,
-                        ),
                   ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          _model.accessRequest = await actions.bRequestAccess(
-                            _model.textController1.text,
-                            _model.textController2.text,
-                          );
-                          setState(() {
-                            _model.aacessError = _model.accessRequest;
-                          });
-
-                          setState(() {});
-                        },
-                        text: 'Request Access',
-                        options: FFButtonOptions(
-                          width: 120.0,
-                          height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                  ),
-                          elevation: 0.0,
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                    child: TextFormField(
+                      controller: _model.textController2,
+                      focusNode: _model.textFieldFocusNode2,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Client Secret',
+                        hintText: 'Enter your client secret',
+                        hintStyle: FlutterFlowTheme.of(context).bodyLarge,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: Color(0x00000000),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: Color(0x00000000),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: Color(0x00000000),
+                            width: 2.0,
+                          ),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      validator:
+                          _model.textController2Validator.asValidator(context),
                     ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
-                      child: Container(
-                        width: 20.0,
-                        height: 20.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).error,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                    ),
-                  ].divide(const SizedBox(width: 10.0)),
-                ),
-                if (_model.aacessError != null && _model.aacessError != '')
-                  Text(
-                    _model.aacessError!,
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: FlutterFlowTheme.of(context).error,
-                        ),
                   ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          _model.doesHasAccess = await actions.cHasAccessRight(
-                            _model.textController1.text,
-                            _model.textController2.text,
-                          );
-                          setState(() {
-                            _model.hasAccessError = _model.doesHasAccess;
-                          });
-
-                          setState(() {});
-                        },
-                        text: 'Has Access Right?',
-                        options: FFButtonOptions(
-                          width: 120.0,
-                          height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                  ),
-                          elevation: 0.0,
-                          borderRadius: BorderRadius.circular(10.0),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'ConnectionStatus',
+                          style: FlutterFlowTheme.of(context).displayMedium,
                         ),
                       ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
-                      child: Container(
-                        width: 20.0,
-                        height: 20.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).error,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                    ),
-                  ].divide(const SizedBox(width: 10.0)),
-                ),
-                if (_model.hasAccessError != null &&
-                    _model.hasAccessError != '')
-                  Text(
-                    _model.hasAccessError!,
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: FlutterFlowTheme.of(context).error,
-                        ),
-                  ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          _model.queredHeadsets = await actions.dQueryHeadset();
-                          setState(() {
-                            _model.queryHeadsetError = _model.queredHeadsets;
-                            _model.availableHeadsets = functions
-                                .availableHeadsetId(_model.queredHeadsets!)
-                                .toList()
-                                .cast<String>();
-                          });
-
-                          setState(() {});
-                        },
-                        text: 'Query headset',
-                        options: FFButtonOptions(
-                          width: 120.0,
-                          height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                  ),
-                          elevation: 0.0,
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
-                      child: Container(
-                        width: 20.0,
-                        height: 20.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).error,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                    ),
-                  ].divide(const SizedBox(width: 10.0)),
-                ),
-                if (_model.queryHeadsetError != null &&
-                    _model.queryHeadsetError != '')
-                  Text(
-                    _model.queryHeadsetError!,
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: FlutterFlowTheme.of(context).error,
-                        ),
-                  ),
-                Text(
-                  'Quered Headsets',
-                  style: FlutterFlowTheme.of(context).displayMedium,
-                ),
-                Builder(
-                  builder: (context) {
-                    final availableHeadset = _model.availableHeadsets.toList();
-                    return ListView.separated(
-                      padding: EdgeInsets.zero,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: availableHeadset.length,
-                      separatorBuilder: (_, __) => const SizedBox(height: 5.0),
-                      itemBuilder: (context, availableHeadsetIndex) {
-                        final availableHeadsetItem =
-                            availableHeadset[availableHeadsetIndex];
-                        return Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              availableHeadsetItem,
-                              style: FlutterFlowTheme.of(context).headlineLarge,
-                            ),
-                            FFButtonWidget(
-                              onPressed: () async {
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            var shouldSetState = false;
+                            _model.getCortexInfoCopy =
+                                await actions.aGetCortexInfo();
+                            shouldSetState = true;
+                            if (functions.getEmotivIsInstalled(
+                                _model.getCortexInfoCopy!)) {
+                              setState(() {
+                                _model.emotivInstalled = true;
+                              });
+                              _model.getUserLogin =
+                                  await actions.eGetUserLogin();
+                              shouldSetState = true;
+                              if (functions
+                                  .getIsUserLogedIn(_model.getUserLogin!)) {
                                 setState(() {
-                                  FFAppState().defaultHeadset =
-                                      availableHeadsetItem;
+                                  _model.logedInEmotiv = true;
                                 });
-                              },
-                              text: availableHeadsetItem ==
-                                      FFAppState().defaultHeadset
-                                  ? 'Default'
-                                  : 'Set Default',
-                              options: FFButtonOptions(
-                                height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: availableHeadsetItem ==
-                                        FFAppState().defaultHeadset
-                                    ? FlutterFlowTheme.of(context).success
-                                    : FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: Colors.white,
+                                _model.hasAccessRightCopy =
+                                    await actions.cHasAccessRight(
+                                  FFAppState().clientId,
+                                  FFAppState().clientSecret,
+                                );
+                                shouldSetState = true;
+                                if (functions.getHasAccessRight(
+                                    _model.hasAccessRightCopy!)) {
+                                  setState(() {
+                                    _model.hasAccessRight = true;
+                                  });
+                                  _model.queryHeadsetsCopy =
+                                      await actions.dQueryHeadset();
+                                  shouldSetState = true;
+                                  setState(() {
+                                    _model.availableHeadsets = functions
+                                        .getAvailableHeadsetId(
+                                            _model.queryHeadsetsCopy!)
+                                        .toList()
+                                        .cast<String>();
+                                  });
+                                  if (_model.availableHeadsets.isNotEmpty) {
+                                    setState(() {
+                                      _model.deviceIsConnected = true;
+                                    });
+                                    if (shouldSetState) setState(() {});
+                                    return;
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'No Device Available',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
+                                        ),
+                                        duration: const Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context).error,
+                                      ),
+                                    );
+                                    setState(() {
+                                      _model.deviceIsConnected = false;
+                                      _model.availableHeadsets = [];
+                                      _model.queryHeadsetError =
+                                          _model.queryHeadsetsCopy;
+                                    });
+                                    if (shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Access Right Isnt Granted',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: const Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context).error,
                                     ),
-                                elevation: 3.0,
-                                borderSide: const BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
+                                  );
+                                  setState(() {
+                                    _model.hasAccessRight = false;
+                                    _model.deviceIsConnected = false;
+                                    _model.availableHeadsets = [];
+                                    _model.hasAccessError =
+                                        _model.hasAccessRightCopy;
+                                  });
+                                  if (shouldSetState) setState(() {});
+                                  return;
+                                }
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'User Is Not Logged in',
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                    ),
+                                    duration: const Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).error,
+                                  ),
+                                );
+                                setState(() {
+                                  _model.logedInEmotiv = false;
+                                  _model.hasAccessRight = false;
+                                  _model.deviceIsConnected = false;
+                                  _model.availableHeadsets = [];
+                                });
+                                if (shouldSetState) setState(() {});
+                                return;
+                              }
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Emotive Launcher Is not installed',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: const Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).error,
                                 ),
-                                borderRadius: BorderRadius.circular(8.0),
+                              );
+                              setState(() {
+                                _model.emotivInstalled = false;
+                                _model.logedInEmotiv = false;
+                                _model.hasAccessRight = false;
+                                _model.deviceIsConnected = false;
+                                _model.availableHeadsets = [];
+                                _model.getCortexInfoError =
+                                    _model.getCortexInfoCopy;
+                              });
+                              if (shouldSetState) setState(() {});
+                              return;
+                            }
+
+                            if (shouldSetState) setState(() {});
+                          },
+                          text: 'Check',
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
+                            elevation: 3.0,
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Container(
+                              width: 20.0,
+                              height: 20.0,
+                              decoration: BoxDecoration(
+                                color: _model.emotivInstalled
+                                    ? FlutterFlowTheme.of(context).success
+                                    : FlutterFlowTheme.of(context).error,
+                                shape: BoxShape.circle,
                               ),
                             ),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                ),
-              ].divide(const SizedBox(height: 8.0)),
+                          ),
+                          Text(
+                            'Installed Emotiv Launcher',
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                          ),
+                        ].divide(const SizedBox(width: 5.0)),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Container(
+                              width: 20.0,
+                              height: 20.0,
+                              decoration: BoxDecoration(
+                                color: _model.logedInEmotiv
+                                    ? FlutterFlowTheme.of(context).success
+                                    : FlutterFlowTheme.of(context).error,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Logged In Emotiv Launcher',
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                          ),
+                        ].divide(const SizedBox(width: 5.0)),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Container(
+                              width: 20.0,
+                              height: 20.0,
+                              decoration: BoxDecoration(
+                                color: _model.hasAccessRight
+                                    ? FlutterFlowTheme.of(context).success
+                                    : FlutterFlowTheme.of(context).error,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Have Access Right',
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                          ),
+                        ].divide(const SizedBox(width: 5.0)),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Container(
+                              width: 20.0,
+                              height: 20.0,
+                              decoration: BoxDecoration(
+                                color: _model.deviceIsConnected
+                                    ? FlutterFlowTheme.of(context).success
+                                    : FlutterFlowTheme.of(context).error,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Device Connected',
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                          ),
+                        ].divide(const SizedBox(width: 5.0)),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            _model.getCortexInfo =
+                                await actions.aGetCortexInfo();
+                            setState(() {
+                              _model.getCortexInfoError = _model.getCortexInfo;
+                            });
+
+                            setState(() {});
+                          },
+                          text: 'Get Cortex Info',
+                          options: FFButtonOptions(
+                            width: 120.0,
+                            height: 40.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                    ].divide(const SizedBox(width: 10.0)),
+                  ),
+                  if (_model.getCortexInfoError != null &&
+                      _model.getCortexInfoError != '')
+                    Text(
+                      _model.getCortexInfoError!,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            color: FlutterFlowTheme.of(context).error,
+                          ),
+                    ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            _model.accessRequest = await actions.bRequestAccess(
+                              _model.textController1.text,
+                              _model.textController2.text,
+                            );
+                            setState(() {
+                              _model.aacessError = _model.accessRequest;
+                            });
+
+                            setState(() {});
+                          },
+                          text: 'Request Access',
+                          options: FFButtonOptions(
+                            width: 120.0,
+                            height: 40.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                    ].divide(const SizedBox(width: 10.0)),
+                  ),
+                  if (_model.aacessError != null && _model.aacessError != '')
+                    Text(
+                      _model.aacessError!,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            color: FlutterFlowTheme.of(context).error,
+                          ),
+                    ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            _model.doesHasAccess =
+                                await actions.cHasAccessRight(
+                              _model.textController1.text,
+                              _model.textController2.text,
+                            );
+                            setState(() {
+                              _model.hasAccessError = _model.doesHasAccess;
+                            });
+
+                            setState(() {});
+                          },
+                          text: 'Has Access Right?',
+                          options: FFButtonOptions(
+                            width: 120.0,
+                            height: 40.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                    ].divide(const SizedBox(width: 10.0)),
+                  ),
+                  if (_model.hasAccessError != null &&
+                      _model.hasAccessError != '')
+                    Text(
+                      _model.hasAccessError!,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            color: FlutterFlowTheme.of(context).error,
+                          ),
+                    ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            _model.queredHeadsets =
+                                await actions.dQueryHeadset();
+                            setState(() {
+                              _model.queryHeadsetError = _model.queredHeadsets;
+                              _model.availableHeadsets = functions
+                                  .getAvailableHeadsetId(_model.queredHeadsets!)
+                                  .toList()
+                                  .cast<String>();
+                            });
+
+                            setState(() {});
+                          },
+                          text: 'Query headset',
+                          options: FFButtonOptions(
+                            width: 120.0,
+                            height: 40.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                    ].divide(const SizedBox(width: 10.0)),
+                  ),
+                  if (_model.queryHeadsetError != null &&
+                      _model.queryHeadsetError != '')
+                    Text(
+                      _model.queryHeadsetError!,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            color: FlutterFlowTheme.of(context).error,
+                          ),
+                    ),
+                  Text(
+                    'Quered Headsets',
+                    style: FlutterFlowTheme.of(context).displayMedium,
+                  ),
+                  Builder(
+                    builder: (context) {
+                      final availableHeadset =
+                          _model.availableHeadsets.toList();
+                      return ListView.separated(
+                        padding: EdgeInsets.zero,
+                        primary: false,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemCount: availableHeadset.length,
+                        separatorBuilder: (_, __) => const SizedBox(height: 5.0),
+                        itemBuilder: (context, availableHeadsetIndex) {
+                          final availableHeadsetItem =
+                              availableHeadset[availableHeadsetIndex];
+                          return Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                availableHeadsetItem,
+                                style:
+                                    FlutterFlowTheme.of(context).headlineLarge,
+                              ),
+                              FFButtonWidget(
+                                onPressed: () async {
+                                  setState(() {
+                                    FFAppState().defaultHeadset =
+                                        availableHeadsetItem;
+                                  });
+                                },
+                                text: availableHeadsetItem ==
+                                        FFAppState().defaultHeadset
+                                    ? 'Default'
+                                    : 'Set Default',
+                                options: FFButtonOptions(
+                                  height: 40.0,
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 24.0, 0.0),
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: availableHeadsetItem ==
+                                          FFAppState().defaultHeadset
+                                      ? FlutterFlowTheme.of(context).success
+                                      : FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: Colors.white,
+                                      ),
+                                  elevation: 3.0,
+                                  borderSide: const BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ].divide(const SizedBox(height: 8.0)),
+              ),
             ),
           ),
         ),

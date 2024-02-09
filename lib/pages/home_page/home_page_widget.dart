@@ -81,6 +81,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   },
                   text: 'Connection Settings',
                   options: FFButtonOptions(
+                    width: 250.0,
                     height: 40.0,
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
@@ -100,7 +101,35 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   ),
                 ),
               ),
-            ],
+              Align(
+                alignment: const AlignmentDirectional(0.0, 0.0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    context.pushNamed('SetBciConnection');
+                  },
+                  text: 'Start Session',
+                  options: FFButtonOptions(
+                    width: 250.0,
+                    height: 40.0,
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Readex Pro',
+                          color: Colors.white,
+                        ),
+                    elevation: 3.0,
+                    borderSide: const BorderSide(
+                      color: Colors.transparent,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+              ),
+            ].divide(const SizedBox(height: 10.0)),
           ),
         ),
       ),

@@ -14,7 +14,44 @@ dynamic stringToJson(String text) {
   return jsonDecode(text);
 }
 
-List<String> availableHeadsetId(String json) {
+bool getIsUserLogedIn(String json) {
+  // return all id {"result":[{"id":"EPOCX-E50207C0","status":"connected"},{"id":"EPOCX-E58207C0"}]}
+  final Map<String, dynamic> data = jsonDecode(json);
+  final List<dynamic> result = data['result'];
+  return result.isNotEmpty;
+}
+
+bool getEmotivIsInstalled(String json) {
+  try {
+    final Map<String, dynamic> data = jsonDecode(json);
+
+    // Check if "result" key is present
+    if (data.containsKey('result')) {
+      final dynamic result = data['result'];
+
+      // Check for the required keys to determine if Emotiv is installed
+      if (result is Map<String, dynamic> &&
+          result.containsKey('buildDate') &&
+          result.containsKey('buildNumber') &&
+          result.containsKey('version')) {
+        print(
+            'Emotiv is installed. Build Date: ${result['buildDate']}, Build Number: ${result['buildNumber']}, Version: ${result['version']}');
+        return true; // Emotiv is installed
+      } else {
+        print('Emotiv is not installed. Missing keys in result.');
+        return false; // Emotiv is not installed, keys are missing
+      }
+    } else {
+      print('Emotiv is not installed. "result" key is missing.');
+      return false; // "result" key is missing
+    }
+  } catch (e) {
+    print('Error occurred. Emotiv is not installed.');
+    return false; // Error occurred, indicating Emotiv is not installed
+  }
+}
+
+List<String> getAvailableHeadsetId(String json) {
   // return all id {"result":[{"id":"EPOCX-E50207C0","status":"connected"},{"id":"EPOCX-E58207C0"}]}
   final Map<String, dynamic> data = jsonDecode(json);
   final List<dynamic> result = data['result'];
@@ -23,4 +60,11 @@ List<String> availableHeadsetId(String json) {
     ids.add(item['id']);
   }
   return ids;
+}
+
+bool getHasAccessRight(String json) {
+  // return all id {"id":3,"jsonrpc":"2.0","result":{"accessGranted":true,"message":"The access right to the application has already been granted."}}
+  final Map<String, dynamic> data = jsonDecode(json);
+  final dynamic result = data['result'];
+  return result['accessGranted'];
 }
