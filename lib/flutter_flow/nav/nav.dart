@@ -50,6 +50,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'SetBciConnection')
               : const SetBciConnectionWidget(),
+        ),
+        FFRoute(
+          name: 'Session',
+          path: '/session',
+          builder: (context, params) => const SessionWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

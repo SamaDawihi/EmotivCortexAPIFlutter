@@ -79,12 +79,63 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Connection Details',
+                          style: FlutterFlowTheme.of(context).displayMedium,
+                        ),
+                      ),
+                      if (!((FFAppState().clientId ==
+                              _model.textController1.text) &&
+                          (FFAppState().clientSecret ==
+                              _model.textController2.text)))
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 16.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              setState(() {
+                                FFAppState().clientId =
+                                    _model.textController1.text;
+                                FFAppState().clientSecret =
+                                    _model.textController2.text;
+                              });
+                            },
+                            text: 'Update',
+                            options: FFButtonOptions(
+                              height: 40.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
                   Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                     child: TextFormField(
                       controller: _model.textController1,
                       focusNode: _model.textFieldFocusNode1,
+                      textCapitalization: TextCapitalization.none,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Client ID',
@@ -174,7 +225,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                     children: [
                       Expanded(
                         child: Text(
-                          'ConnectionStatus',
+                          'Connection Status',
                           style: FlutterFlowTheme.of(context).displayMedium,
                         ),
                       ),
@@ -255,7 +306,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Access Right Isnt Granted',
+                                        'Access Right Isnt Granted, Click Request Access',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
