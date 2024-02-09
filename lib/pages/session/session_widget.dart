@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -75,7 +76,7 @@ class _SessionWidgetState extends State<SessionWidget> {
                   });
                   _model.subscribeAction = await actions.hSubscribe(
                     _model.cortexToken!,
-                    _model.sessionId!,
+                    _model.headsetId!,
                   );
                   setState(() {
                     _model.subscribedStreem = _model.subscribeAction;
@@ -328,9 +329,10 @@ class _SessionWidgetState extends State<SessionWidget> {
                   'Current Headset: ${_model.headsetId}',
                   style: FlutterFlowTheme.of(context).titleLarge,
                 ),
-                Text(
+                AutoSizeText(
                   'CortexToken: ${_model.cortexToken}',
                   style: FlutterFlowTheme.of(context).titleLarge,
+                  minFontSize: 5.0,
                 ),
                 Text(
                   'License Info: ${_model.licenseInfo}',
@@ -350,7 +352,7 @@ class _SessionWidgetState extends State<SessionWidget> {
                       _model.cortexToken!,
                     );
                   },
-                  text: 'Button',
+                  text: 'Query Sessions',
                   options: FFButtonOptions(
                     height: 40.0,
                     padding:
