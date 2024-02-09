@@ -70,7 +70,10 @@ class _SessionWidgetState extends State<SessionWidget> {
                     _model.headsetId!,
                   );
                   setState(() {
-                    _model.subscribedStream = _model.subscribeAction;
+                    _model.subscribedStream = valueOrDefault<String>(
+                      _model.subscribeAction?.af3.length.toString(),
+                      'error',
+                    );
                   });
                   return;
                 } else {

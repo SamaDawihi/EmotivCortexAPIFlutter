@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'session_widget.dart' show SessionWidget;
 import 'package:flutter/material.dart';
@@ -29,7 +30,7 @@ class SessionModel extends FlutterFlowModel<SessionWidget> {
   // Stores action output result for [Custom Action - fGetLicenseInfo] action in Session widget.
   String? licenseInfoAction;
   // Stores action output result for [Custom Action - gSubscribe] action in Session widget.
-  String? subscribeAction;
+  EegStruct? subscribeAction;
 
   /// Initialization and disposal methods.
 
