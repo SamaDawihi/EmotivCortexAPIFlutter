@@ -17,6 +17,9 @@ class EegStruct extends BaseStruct {
     List<double>? o2,
     List<double>? p8,
     List<double>? t8,
+    List<double>? fc6,
+    List<double>? f4,
+    List<double>? f8,
     List<double>? af4,
   })  : _af3 = af3,
         _f7 = f7,
@@ -28,6 +31,9 @@ class EegStruct extends BaseStruct {
         _o2 = o2,
         _p8 = p8,
         _t8 = t8,
+        _fc6 = fc6,
+        _f4 = f4,
+        _f8 = f8,
         _af4 = af4;
 
   // "AF3" field.
@@ -100,6 +106,27 @@ class EegStruct extends BaseStruct {
   void updateT8(Function(List<double>) updateFn) => updateFn(_t8 ??= []);
   bool hasT8() => _t8 != null;
 
+  // "FC6" field.
+  List<double>? _fc6;
+  List<double> get fc6 => _fc6 ?? const [];
+  set fc6(List<double>? val) => _fc6 = val;
+  void updateFc6(Function(List<double>) updateFn) => updateFn(_fc6 ??= []);
+  bool hasFc6() => _fc6 != null;
+
+  // "F4" field.
+  List<double>? _f4;
+  List<double> get f4 => _f4 ?? const [];
+  set f4(List<double>? val) => _f4 = val;
+  void updateF4(Function(List<double>) updateFn) => updateFn(_f4 ??= []);
+  bool hasF4() => _f4 != null;
+
+  // "F8" field.
+  List<double>? _f8;
+  List<double> get f8 => _f8 ?? const [];
+  set f8(List<double>? val) => _f8 = val;
+  void updateF8(Function(List<double>) updateFn) => updateFn(_f8 ??= []);
+  bool hasF8() => _f8 != null;
+
   // "AF4" field.
   List<double>? _af4;
   List<double> get af4 => _af4 ?? const [];
@@ -118,6 +145,9 @@ class EegStruct extends BaseStruct {
         o2: getDataList(data['O2']),
         p8: getDataList(data['P8']),
         t8: getDataList(data['T8']),
+        fc6: getDataList(data['FC6']),
+        f4: getDataList(data['F4']),
+        f8: getDataList(data['F8']),
         af4: getDataList(data['AF4']),
       );
 
@@ -135,6 +165,9 @@ class EegStruct extends BaseStruct {
         'O2': _o2,
         'P8': _p8,
         'T8': _t8,
+        'FC6': _fc6,
+        'F4': _f4,
+        'F8': _f8,
         'AF4': _af4,
       }.withoutNulls;
 
@@ -187,6 +220,21 @@ class EegStruct extends BaseStruct {
         ),
         'T8': serializeParam(
           _t8,
+          ParamType.double,
+          true,
+        ),
+        'FC6': serializeParam(
+          _fc6,
+          ParamType.double,
+          true,
+        ),
+        'F4': serializeParam(
+          _f4,
+          ParamType.double,
+          true,
+        ),
+        'F8': serializeParam(
+          _f8,
           ParamType.double,
           true,
         ),
@@ -248,6 +296,21 @@ class EegStruct extends BaseStruct {
           ParamType.double,
           true,
         ),
+        fc6: deserializeParam<double>(
+          data['FC6'],
+          ParamType.double,
+          true,
+        ),
+        f4: deserializeParam<double>(
+          data['F4'],
+          ParamType.double,
+          true,
+        ),
+        f8: deserializeParam<double>(
+          data['F8'],
+          ParamType.double,
+          true,
+        ),
         af4: deserializeParam<double>(
           data['AF4'],
           ParamType.double,
@@ -272,12 +335,15 @@ class EegStruct extends BaseStruct {
         listEquality.equals(o2, other.o2) &&
         listEquality.equals(p8, other.p8) &&
         listEquality.equals(t8, other.t8) &&
+        listEquality.equals(fc6, other.fc6) &&
+        listEquality.equals(f4, other.f4) &&
+        listEquality.equals(f8, other.f8) &&
         listEquality.equals(af4, other.af4);
   }
 
   @override
   int get hashCode => const ListEquality()
-      .hash([af3, f7, f3, fc5, t7, p7, o1, o2, p8, t8, af4]);
+      .hash([af3, f7, f3, fc5, t7, p7, o1, o2, p8, t8, fc6, f4, f8, af4]);
 }
 
 EegStruct createEegStruct() => EegStruct();
