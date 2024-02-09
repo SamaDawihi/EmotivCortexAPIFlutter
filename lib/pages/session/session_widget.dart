@@ -50,7 +50,7 @@ class _SessionWidgetState extends State<SessionWidget> {
                   });
                   _model.authorizeAction = await actions.eAuthorize(
                     FFAppState().clientId,
-                    FFAppState().clientId,
+                    FFAppState().clientSecret,
                   );
                   setState(() {
                     _model.cortexToken =
