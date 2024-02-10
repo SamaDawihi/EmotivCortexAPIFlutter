@@ -65,8 +65,8 @@ class _SessionWidgetState extends State<SessionWidget> {
                         .getLicenseHasEEG(_model.licenseInfoAction!)
                         .toString();
                   });
-                  _model.subscribeAction = await actions.gSubscribe(
-                    _model.cortexToken!,
+                  _model.subscribeAction = await actions.hSubscribeMet(
+                    functions.getCortexToken(_model.authorizeAction!),
                     _model.headsetId!,
                   );
                   setState(() {

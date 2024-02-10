@@ -6,3 +6,4 @@ export 'c_has_access_right.dart' show cHasAccessRight;
 export 'd_query_headset.dart' show dQueryHeadset;
 export 'g_subscribe.dart' show gSubscribe;
 export 'f_get_license_info.dart' show fGetLicenseInfo;
+export 'h_subscribe_met.dart' show hSubscribeMet;
