@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'dart:js_interop';
+
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/status.dart' as status;
 import 'dart:async';
@@ -62,12 +64,30 @@ Future<MetStruct> hSubscribeMet(String cortexToken, String headsetId) async {
       print('hSubscribeMet: Received message: $message');
       final Map<String, dynamic> json = jsonDecode(message);
       if (json.containsKey("met")) {
-        met.attention = json[met][1] >= 0.5;
-        met.engagement = json[met][3] >= 0.5;
-        met.excitement = json[met][5] >= 0.5;
-        met.stress = json[met][8] >= 0.5;
-        met.relaxation = json[met][10] >= 0.5;
-        met.interest = json[met][12] >= 0.5;
+        if (json["met"][0]) {
+          met.attention = (json["met"][1] * 10).round();
+          met.attentionSet = true;
+        }
+        if (json["met"][2]) {
+          met.engagement = (json["met"][3] * 10).round();
+          met.engagementSet = true;
+        }
+        if (json["met"][4]) {
+          met.excitement = (json["met"][5] * 10).round();
+          met.excitementSet = true;
+        }
+        if (json["met"][7]) {
+          met.stress = (json["met"][8] * 10).round();
+          met.stressSet = true;
+        }
+        if (json["met"][9]) {
+          met.relaxation = (json["met"][10] * 10).round();
+          met.relaxationSet = true;
+        }
+        if (json["met"][11]) {
+          met.interest = (json["met"][12] * 10).round();
+          met.interestSet = true;
+        }
         completer.complete(met);
       }
     }

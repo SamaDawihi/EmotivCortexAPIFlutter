@@ -75,6 +75,20 @@ class _SessionWidgetState extends State<SessionWidget> {
                       'error',
                     );
                   });
+                  if (_model.subscribeAction!.engagementSet &&
+                      _model.subscribeAction!.interestSet) {
+                    setState(() {
+                      _model.predictedEmotion = functions.emotionByArVal(
+                          _model.subscribeAction!.engagement,
+                          _model.subscribeAction!.interest);
+                    });
+                  } else {
+                    setState(() {
+                      _model.predictedEmotion =
+                          'Failed to detect due to low EEG quality';
+                    });
+                  }
+
                   return;
                 } else {
                   var confirmDialogResponse = await showDialog<bool>(
@@ -337,7 +351,7 @@ class _SessionWidgetState extends State<SessionWidget> {
                 )),
                 SelectionArea(
                     child: AutoSizeText(
-                  'Subscribe: ${_model.subscribedStream}',
+                  'Emotion: ${_model.predictedEmotion}',
                   style: FlutterFlowTheme.of(context).titleLarge,
                   minFontSize: 5.0,
                 )),

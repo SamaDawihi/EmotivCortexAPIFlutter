@@ -146,12 +146,10 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
       }
     });
 
-    _model.textController1 ??=
-        TextEditingController(text: FFAppState().clientId);
+    _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??=
-        TextEditingController(text: FFAppState().clientSecret);
+    _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
   }
 
@@ -204,154 +202,220 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                     children: [
                       Expanded(
                         child: Text(
-                          'Connection Details',
-                          style: FlutterFlowTheme.of(context).displayMedium,
+                          ' Connection Details  ',
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .displayMedium
+                              .override(
+                                fontFamily: 'Outfit',
+                                fontSize: 40.0,
+                                fontWeight: FontWeight.normal,
+                              ),
                         ),
                       ),
-                      if (!((FFAppState().clientId ==
-                              _model.textController1.text) &&
-                          (FFAppState().clientSecret ==
-                              _model.textController2.text)))
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 16.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              setState(() {
-                                FFAppState().clientId =
-                                    _model.textController1.text;
-                                FFAppState().clientSecret =
-                                    _model.textController2.text;
-                              });
-                            },
-                            text: 'Update',
-                            options: FFButtonOptions(
-                              height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                          ),
-                        ),
                     ],
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                    child: TextFormField(
-                      controller: _model.textController1,
-                      focusNode: _model.textFieldFocusNode1,
-                      textCapitalization: TextCapitalization.none,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        labelText: 'Client ID',
-                        hintText: 'Enter your client ID',
-                        hintStyle: FlutterFlowTheme.of(context).bodyLarge,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).primary,
-                            width: 2.0,
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 0.0),
+                                child: TextFormField(
+                                  controller: _model.textController1,
+                                  focusNode: _model.textFieldFocusNode1,
+                                  autofocus: true,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Client ID\n',
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                    hintText: '[clientId]',
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                  ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  validator: _model.textController1Validator
+                                      .asValidator(context),
+                                ),
+                              ),
+                            ],
                           ),
-                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0x00000000),
-                            width: 2.0,
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 0.0),
+                                child: TextFormField(
+                                  controller: _model.textController2,
+                                  focusNode: _model.textFieldFocusNode2,
+                                  autofocus: true,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Client Secret',
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                    hintText: '[clientSecret]',
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                  ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  validator: _model.textController2Validator
+                                      .asValidator(context),
+                                ),
+                              ),
+                            ],
                           ),
-                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0x00000000),
-                            width: 2.0,
+                        if (!((FFAppState().clientId ==
+                                _model.textController1.text) &&
+                            (FFAppState().clientSecret ==
+                                _model.textController2.text)))
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 16.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                setState(() {
+                                  FFAppState().clientId =
+                                      _model.textController1.text;
+                                  FFAppState().clientSecret =
+                                      _model.textController2.text;
+                                });
+                              },
+                              text: 'Update',
+                              options: FFButtonOptions(
+                                height: 40.0,
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Colors.white,
+                                    ),
+                                elevation: 3.0,
+                                borderSide: const BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0x00000000),
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
-                      validator:
-                          _model.textController1Validator.asValidator(context),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                    child: TextFormField(
-                      controller: _model.textController2,
-                      focusNode: _model.textFieldFocusNode2,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        labelText: 'Client Secret',
-                        hintText: 'Enter your client secret',
-                        hintStyle: FlutterFlowTheme.of(context).bodyLarge,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).primary,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0x00000000),
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0x00000000),
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0x00000000),
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
-                      validator:
-                          _model.textController2Validator.asValidator(context),
+                      ],
                     ),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Expanded(
-                        child: Text(
-                          'Connection Status',
-                          style: FlutterFlowTheme.of(context).displayMedium,
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 50.0, 0.0, 0.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    170.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Connection Status ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 40.0,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            0.0, 50.0, 16.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             var shouldSetState = false;
@@ -526,137 +590,146 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Container(
-                              width: 20.0,
-                              height: 20.0,
-                              decoration: BoxDecoration(
-                                color: _model.emotivInstalled
-                                    ? FlutterFlowTheme.of(context).success
-                                    : FlutterFlowTheme.of(context).error,
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            'Installed Emotiv Launcher',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ].divide(const SizedBox(width: 5.0)),
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Container(
-                              width: 20.0,
-                              height: 20.0,
-                              decoration: BoxDecoration(
-                                color: _model.logedInEmotiv
-                                    ? FlutterFlowTheme.of(context).success
-                                    : FlutterFlowTheme.of(context).error,
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            'Logged In Emotiv Launcher',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ].divide(const SizedBox(width: 5.0)),
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Container(
-                              width: 20.0,
-                              height: 20.0,
-                              decoration: BoxDecoration(
-                                color: _model.hasAccessRight
-                                    ? FlutterFlowTheme.of(context).success
-                                    : FlutterFlowTheme.of(context).error,
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            'Have Access Right',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ].divide(const SizedBox(width: 5.0)),
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Container(
-                              width: 20.0,
-                              height: 20.0,
-                              decoration: BoxDecoration(
-                                color: _model.deviceIsConnected
-                                    ? FlutterFlowTheme.of(context).success
-                                    : FlutterFlowTheme.of(context).error,
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            'Device Connected',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ].divide(const SizedBox(width: 5.0)),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            _model.getCortexInfo =
-                                await actions.aGetCortexInfo();
-                            setState(() {
-                              _model.getCortexInfoError = _model.getCortexInfo;
-                            });
-
-                            setState(() {});
-                          },
-                          text: 'Get Cortex Info',
-                          options: FFButtonOptions(
-                            width: 120.0,
-                            height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Container(
+                                width: 20.0,
+                                height: 20.0,
+                                decoration: BoxDecoration(
+                                  color: _model.emotivInstalled
+                                      ? FlutterFlowTheme.of(context).success
+                                      : FlutterFlowTheme.of(context).error,
+                                  shape: BoxShape.circle,
                                 ),
-                            elevation: 0.0,
-                            borderRadius: BorderRadius.circular(10.0),
+                              ),
+                            ),
+                            Text(
+                              'Installed Emotiv Launcher',
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                          ].divide(const SizedBox(width: 5.0)),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Container(
+                                width: 20.0,
+                                height: 20.0,
+                                decoration: BoxDecoration(
+                                  color: _model.logedInEmotiv
+                                      ? FlutterFlowTheme.of(context).success
+                                      : FlutterFlowTheme.of(context).error,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'Logged In Emotiv Launcher',
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                          ].divide(const SizedBox(width: 5.0)),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Container(
+                                width: 20.0,
+                                height: 20.0,
+                                decoration: BoxDecoration(
+                                  color: _model.hasAccessRight
+                                      ? FlutterFlowTheme.of(context).success
+                                      : FlutterFlowTheme.of(context).error,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'Have Access Right',
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                          ].divide(const SizedBox(width: 5.0)),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Container(
+                                width: 20.0,
+                                height: 20.0,
+                                decoration: BoxDecoration(
+                                  color: _model.deviceIsConnected
+                                      ? FlutterFlowTheme.of(context).success
+                                      : FlutterFlowTheme.of(context).error,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'Device Connected',
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                          ].divide(const SizedBox(width: 5.0)),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              _model.getCortexInfo =
+                                  await actions.aGetCortexInfo();
+                              setState(() {
+                                _model.getCortexInfoError =
+                                    _model.getCortexInfo;
+                              });
+
+                              setState(() {});
+                            },
+                            text: 'Get Cortex Info',
+                            options: FFButtonOptions(
+                              width: 120.0,
+                              height: 40.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
+                              elevation: 0.0,
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
                           ),
                         ),
-                      ),
-                    ].divide(const SizedBox(width: 10.0)),
+                      ].divide(const SizedBox(width: 10.0)),
+                    ),
                   ),
                   if (_model.getCortexInfoError != null &&
                       _model.getCortexInfoError != '')
@@ -725,8 +798,8 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                           onPressed: () async {
                             _model.doesHasAccess =
                                 await actions.cHasAccessRight(
-                              _model.textController1.text,
-                              _model.textController2.text,
+                              FFAppState().clientId,
+                              FFAppState().clientSecret,
                             );
                             setState(() {
                               _model.hasAccessError = _model.doesHasAccess;
@@ -811,14 +884,26 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                       _model.queryHeadsetError != '')
                     Text(
                       _model.queryHeadsetError!,
+                      textAlign: TextAlign.justify,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             color: FlutterFlowTheme.of(context).error,
                           ),
                     ),
-                  Text(
-                    'Quered Headsets',
-                    style: FlutterFlowTheme.of(context).displayMedium,
+                  Flexible(
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+                      child: Text(
+                        'Available  Headsets',
+                        textAlign: TextAlign.center,
+                        style:
+                            FlutterFlowTheme.of(context).displayMedium.override(
+                                  fontFamily: 'Outfit',
+                                  fontSize: 40.0,
+                                ),
+                      ),
+                    ),
                   ),
                   Builder(
                     builder: (context) {

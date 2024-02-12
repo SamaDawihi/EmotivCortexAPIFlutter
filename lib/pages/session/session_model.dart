@@ -14,9 +14,7 @@ class SessionModel extends FlutterFlowModel<SessionWidget> {
 
   String? subscribedStream;
 
-  EegStruct? eeg;
-  void updateEegStruct(Function(EegStruct) updateFn) =>
-      updateFn(eeg ??= EegStruct());
+  String? predictedEmotion;
 
   ///  State fields for stateful widgets in this page.
 

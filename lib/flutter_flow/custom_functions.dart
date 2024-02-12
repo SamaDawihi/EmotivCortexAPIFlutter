@@ -90,3 +90,29 @@ bool getHasAccessRight(String json) {
   final dynamic result = data['result'];
   return result['accessGranted'];
 }
+
+String emotionByArVal(
+  int arousal,
+  int valence,
+) {
+  if (arousal <= 3) {
+    //Engagement
+    return (valence <= 3) //Interest
+        ? "Depression"
+        : (valence <= 7)
+            ? "Boredom"
+            : "Contentment";
+  } else if (arousal <= 7) {
+    return (valence <= 3)
+        ? "Anger"
+        : (valence <= 7)
+            ? "Neutral"
+            : "Joy";
+  } else {
+    return (valence <= 3)
+        ? "Fear"
+        : (valence <= 7)
+            ? "Excitement"
+            : "Elation";
+  }
+}
