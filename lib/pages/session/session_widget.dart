@@ -57,14 +57,6 @@ class _SessionWidgetState extends State<SessionWidget> {
                     _model.cortexToken =
                         functions.getCortexToken(_model.authorizeAction!);
                   });
-                  _model.licenseInfoAction = await actions.fGetLicenseInfo(
-                    _model.cortexToken!,
-                  );
-                  setState(() {
-                    _model.licenseInfo = functions
-                        .getLicenseHasEEG(_model.licenseInfoAction!)
-                        .toString();
-                  });
                   _model.subscribeAction = await actions.hSubscribeMet(
                     functions.getCortexToken(_model.authorizeAction!),
                     _model.headsetId!,
@@ -343,11 +335,6 @@ class _SessionWidgetState extends State<SessionWidget> {
                   'CortexToken: ${_model.cortexToken}',
                   style: FlutterFlowTheme.of(context).titleLarge,
                   minFontSize: 5.0,
-                )),
-                SelectionArea(
-                    child: Text(
-                  'License Info: ${_model.licenseInfo}',
-                  style: FlutterFlowTheme.of(context).titleLarge,
                 )),
                 SelectionArea(
                     child: AutoSizeText(

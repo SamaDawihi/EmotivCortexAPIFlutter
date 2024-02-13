@@ -29,8 +29,6 @@ class SessionModel extends FlutterFlowModel<SessionWidget> {
   String? queryHeadsetsCopy;
   // Stores action output result for [Custom Action - eAuthorize] action in Session widget.
   String? authorizeAction;
-  // Stores action output result for [Custom Action - fGetLicenseInfo] action in Session widget.
-  String? licenseInfoAction;
   // Stores action output result for [Custom Action - hSubscribeMet] action in Session widget.
   MetStruct? subscribeAction;
 
