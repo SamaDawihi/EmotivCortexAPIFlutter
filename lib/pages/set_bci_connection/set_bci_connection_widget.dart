@@ -208,6 +208,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                               .displayMedium
                               .override(
                                 fontFamily: 'Outfit',
+                                color: const Color(0xFF4036A7),
                                 fontSize: 40.0,
                                 fontWeight: FontWeight.normal,
                               ),
@@ -405,6 +406,7 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Readex Pro',
+                                        color: const Color(0xFF4036A7),
                                         fontSize: 40.0,
                                       ),
                                 ),
@@ -890,20 +892,27 @@ class _SetBciConnectionWidgetState extends State<SetBciConnectionWidget> {
                             color: FlutterFlowTheme.of(context).error,
                           ),
                     ),
-                  Flexible(
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
-                      child: Text(
-                        'Available  Headsets',
-                        textAlign: TextAlign.center,
-                        style:
-                            FlutterFlowTheme.of(context).displayMedium.override(
-                                  fontFamily: 'Outfit',
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 20.0),
+                          child: Text(
+                            'Available Headsets',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: const Color(0xFF4036A7),
                                   fontSize: 40.0,
                                 ),
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                   Builder(
                     builder: (context) {
