@@ -10,7 +10,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 class GetImgIdCall {
   static Future<ApiCallResponse> call({
     String? prompt =
-        'a 21 year old arabian female, with medium skin color, black hair and black eyes, who seems to be feeling sad.',
+        'a 21 year old arabian female, with medium skin color, black hair and black eyes, who seems to be feeling happy.',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -24,7 +24,7 @@ class GetImgIdCall {
       apiUrl: 'https://api.replicate.com/v1/predictions',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Token r8_P6zE7tUbMcDT8NkdhwLdZQaWtC747e71cTc1t',
+        'Authorization': 'Token r8_bMCjDyIgM2dojAlIVEk3YHV8PjfTkoH0yL4b5',
         'Content-Type': 'application/json',
       },
       params: {},

@@ -95,24 +95,44 @@ String emotionByArVal(
   int arousal,
   int valence,
 ) {
-  if (arousal <= 3) {
+  if (arousal > 4 && arousal < 6 && valence > 4 && valence < 6) {
+    return "Natural";
+  } else if (arousal >= 5) {
     //Engagement
-    return (valence <= 3) //Interest
-        ? "Depression"
-        : (valence <= 7)
-            ? "Boredom"
-            : "Contentment";
-  } else if (arousal <= 7) {
-    return (valence <= 3)
-        ? "Anger"
-        : (valence <= 7)
-            ? "Neutral"
-            : "Joy";
+    return (valence >= 5) //Interest
+        ? "Happy"
+        : "Angry";
   } else {
-    return (valence <= 3)
-        ? "Fear"
-        : (valence <= 7)
-            ? "Excitement"
-            : "Elation";
+    return (valence >= 5) //Interest
+        ? "Relaxed"
+        : "Sad";
   }
+// if (arousal <= 3) {
+//     //Engagement
+//     return (valence <= 3) //Interest
+//         ? "Depression"
+//         : (valence <= 7)
+//             ? "Boredom"
+//             : "Contentment";
+//   } else if (arousal <= 7) {
+//     return (valence <= 3)
+//         ? "Anger"
+//         : (valence <= 7)
+//             ? "Neutral"
+//             : "Joy";
+//   } else {
+//     return (valence <= 3)
+//         ? "Fear"
+//         : (valence <= 7)
+//             ? "Excitement"
+//             : "Elation";
+//   }
+}
+
+String createDescription(
+  String emotion,
+  DisabledProfileStruct disabledProfile,
+) {
+  //return 'A man named ${disabledProfile.name} is Feeling $emotion';
+  return 'a ${disabledProfile.age} years old ${disabledProfile.ethnicity} ${disabledProfile.gender}, with ${disabledProfile.skincolor} skin color, ${disabledProfile.haircolor} hair and ${disabledProfile.eyecolor} eyes, he has ${disabledProfile.facialhair} facial hair. he seems to be feeling $emotion';
 }

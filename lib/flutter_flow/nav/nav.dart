@@ -55,9 +55,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Session',
           path: '/session',
+          builder: (context, params) => const SessionWidget(),
+        ),
+        FFRoute(
+          name: 'SessionTestImage',
+          path: '/sessionTestImageGeneration',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Session')
-              : const SessionWidget(),
+              ? const NavBarPage(initialPage: 'SessionTestImage')
+              : const SessionTestImageWidget(),
+        ),
+        FFRoute(
+          name: 'SessionTest',
+          path: '/sessionTest',
+          builder: (context, params) => const SessionTestWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

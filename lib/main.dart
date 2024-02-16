@@ -102,7 +102,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'HomePage': const HomePageWidget(),
       'SetBciConnection': const SetBciConnectionWidget(),
-      'Session': const SessionWidget(),
+      'SessionTestImage': const SessionTestImageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 

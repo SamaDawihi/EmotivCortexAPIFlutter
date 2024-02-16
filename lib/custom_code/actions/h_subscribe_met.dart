@@ -8,8 +8,6 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'dart:js_interop';
-
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/status.dart' as status;
 import 'dart:async';
@@ -89,6 +87,7 @@ Future<MetStruct> hSubscribeMet(String cortexToken, String headsetId) async {
           met.interestSet = true;
         }
         completer.complete(met);
+        channel.sink.close(status.goingAway);
       }
     }
   });

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import '/backend/schema/structs/index.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -24,6 +26,9 @@ class FFAppState extends ChangeNotifier {
     });
     _safeInit(() {
       _defaultHeadset = prefs.getString('ff_defaultHeadset') ?? _defaultHeadset;
+    });
+    _safeInit(() {
+      _emotions = prefs.getStringList('ff_emotions') ?? _emotions;
     });
   }
 
@@ -54,6 +59,53 @@ class FFAppState extends ChangeNotifier {
   set defaultHeadset(String value) {
     _defaultHeadset = value;
     prefs.setString('ff_defaultHeadset', value);
+  }
+
+  List<String> _emotions = ['Happy', 'Angry', 'Natural', 'Sad', 'Relaxed'];
+  List<String> get emotions => _emotions;
+  set emotions(List<String> value) {
+    _emotions = value;
+    prefs.setStringList('ff_emotions', value);
+  }
+
+  void addToEmotions(String value) {
+    _emotions.add(value);
+    prefs.setStringList('ff_emotions', _emotions);
+  }
+
+  void removeFromEmotions(String value) {
+    _emotions.remove(value);
+    prefs.setStringList('ff_emotions', _emotions);
+  }
+
+  void removeAtIndexFromEmotions(int index) {
+    _emotions.removeAt(index);
+    prefs.setStringList('ff_emotions', _emotions);
+  }
+
+  void updateEmotionsAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    _emotions[index] = updateFn(_emotions[index]);
+    prefs.setStringList('ff_emotions', _emotions);
+  }
+
+  void insertAtIndexInEmotions(int index, String value) {
+    _emotions.insert(index, value);
+    prefs.setStringList('ff_emotions', _emotions);
+  }
+
+  DisabledProfileStruct _disabledProfile =
+      DisabledProfileStruct.fromSerializableMap(jsonDecode(
+          '{"name":"Saleh","age":"60","ethnicity":"arabic","gender":"male","skincolor":"medium","haircolor":"gray","eyecolor":"black","facialhair":"Clean-Shaven"}'));
+  DisabledProfileStruct get disabledProfile => _disabledProfile;
+  set disabledProfile(DisabledProfileStruct value) {
+    _disabledProfile = value;
+  }
+
+  void updateDisabledProfileStruct(Function(DisabledProfileStruct) updateFn) {
+    updateFn(_disabledProfile);
   }
 }
 

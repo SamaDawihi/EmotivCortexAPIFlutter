@@ -1,12 +1,11 @@
 import '/backend/api_requests/api_calls.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
-import 'session_widget.dart' show SessionWidget;
+import 'session_test_widget.dart' show SessionTestWidget;
 import 'package:flutter/material.dart';
 
-class SessionModel extends FlutterFlowModel<SessionWidget> {
+class SessionTestModel extends FlutterFlowModel<SessionTestWidget> {
   ///  Local state fields for this page.
 
   String? headsetId;
@@ -32,29 +31,19 @@ class SessionModel extends FlutterFlowModel<SessionWidget> {
 
   bool checkingConditions = true;
 
+  bool terminated = false;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Custom Action - aGetCortexInfo] action in Session widget.
-  String? getCortexInfoCopy;
-  // Stores action output result for [Custom Action - aGetUserLogin] action in Session widget.
-  String? getUserLogin;
-  // Stores action output result for [Custom Action - cHasAccessRight] action in Session widget.
-  String? hasAccessRightCopy;
-  // Stores action output result for [Custom Action - dQueryHeadset] action in Session widget.
-  String? queryHeadsetsCopy;
-  // Stores action output result for [Custom Action - eAuthorize] action in Session widget.
-  String? authorizeAction;
-  // Stores action output result for [Custom Action - hSubscribeMet] action in Session widget.
-  MetStruct? subscribeAction;
-  // Stores action output result for [Backend Call - API (getImgId)] action in Session widget.
+  // Stores action output result for [Backend Call - API (getImgId)] action in SessionTest widget.
   ApiCallResponse? imageId;
-  // Stores action output result for [Backend Call - API (getImg)] action in Session widget.
+  // Stores action output result for [Backend Call - API (getImg)] action in SessionTest widget.
   ApiCallResponse? returnedImage;
   // State field(s) for Timer widget.
-  int timerMilliseconds = 120000;
+  int timerMilliseconds = 30000;
   String timerValue = StopWatchTimer.getDisplayTime(
-    120000,
+    30000,
     hours: false,
     milliSecond: false,
   );
